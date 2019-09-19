@@ -1,32 +1,35 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, "src", "index.js"),
+  entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
-  mode: process.env.NODE_ENV || "development",
+  mode: process.env.NODE_ENV || 'development',
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
-        loader: ["style-loader", "css-loader"]
+        loader: ['style-loader', 'css-loader']
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html")
-    })
-  ]
+      template: path.join(__dirname, 'public', 'index.html')
+    }),
+    new Dotenv()
+  ],
+  target: 'node'
 };
