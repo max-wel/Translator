@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> renders a <TextArea /> component 1`] = `
+<div
+  className="form-group"
+>
+  <textarea
+    className="form-control form-control-lg mb-3"
+    name=""
+    onChange={[Function]}
+    placeholder=""
+    readOnly={false}
+    rows="5"
+    value=""
+  />
+</div>
+`;
